@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==RC_GALLERY&& resultCode==RESULT_OK)
         {
             Uri uri=data.getData();
-            double l=new File(uri.getPath().toString()).length();
 
             CropImage.activity(uri)
                     .setGuidelines(CropImageView.Guidelines.ON)
@@ -74,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 imageView.setImageURI(result.getUri());
-                double l=new File(result.getUri().toString()).length();
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                // Toast.makeText(this, "Cropping failed: " + result.getError(), Toast.LENGTH_LONG).show();
